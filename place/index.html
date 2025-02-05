@@ -4,7 +4,7 @@
     <title>Redirecionando para Turin App</title>
     <meta charset="utf-8">
     <meta name="apple-itunes-app" content="app-id=6479428113">
-    <meta property="al:ios:url" content="https://francisdiasbr.github.io/turin-links/place">
+    <meta property="al:ios:url" content="https://francisdiasbr.github.io/place">
     <meta property="al:ios:app_store_id" content="6479428113">
     <meta property="al:ios:app_name" content="Turin App">
 </head>
@@ -20,7 +20,7 @@
         // Adiciona o ID do place nas meta tags
         const metaUrl = document.querySelector('meta[property="al:ios:url"]');
         if (metaUrl) {
-            metaUrl.content = `https://francisdiasbr.github.io/turin-links/place/${placeId}`;
+            metaUrl.content = `https://francisdiasbr.github.io/place/${placeId}`;
         }
         
         // Redireciona para a App Store após um delay

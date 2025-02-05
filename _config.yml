@@ -1,5 +1,4 @@
 include: [".well-known"]
-baseurl: "/turin-links"
 
 defaults:
   - scope:

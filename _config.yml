@@ -1,0 +1,16 @@
+include: [".well-known"]
+baseurl: "/turin-links"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: null
+  - scope:
+      path: ".well-known/apple-app-site-association"
+    values:
+      layout: null
+      content_type: "application/json"
+
+exclude: [".htaccess"]
+keep_files: [".well-known"]

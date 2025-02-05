@@ -14,26 +14,35 @@
     <p>Se você não for redirecionado automaticamente, <a href="https://apps.apple.com/br/app/turin-app/id6479428113">clique aqui para abrir na App Store</a>.</p>
     
     <script>
-        // Captura o ID do place da URL
-        const pathParts = window.location.pathname.split('/');
-        const placeId = pathParts[pathParts.length - 1];
-        
-        // Constrói a URL completa do Universal Link
-        const baseUrl = 'https://francisdiasbr.github.io';
-        const appUrl = placeId ? `${baseUrl}/place/${placeId}` : baseUrl;
-        
-        // Atualiza a meta tag e redireciona
-        const metaUrl = document.querySelector('meta[property="al:ios:url"]');
-        if (metaUrl) {
-            metaUrl.content = appUrl;
+        // Função para obter o ID do place da URL
+        function getPlaceId() {
+            const path = window.location.pathname;
+            const parts = path.split('/');
+            return parts[parts.length - 1] || '';
         }
         
-        window.location.href = appUrl;
+        // Função para redirecionar
+        function redirect() {
+            const placeId = getPlaceId();
+            const baseUrl = 'https://francisdiasbr.github.io/place';
+            const appUrl = placeId ? `${baseUrl}/${placeId}` : baseUrl;
+            
+            // Atualiza a meta tag com a URL correta
+            const metaUrl = document.querySelector('meta[property="al:ios:url"]');
+            if (metaUrl) {
+                metaUrl.content = appUrl;
+            }
+            
+            // Tenta abrir o app
+            window.location.href = appUrl;
+            
+            // Fallback para App Store após delay
+            setTimeout(function() {
+                window.location.href = 'https://apps.apple.com/br/app/turin-app/id6479428113';
+            }, 2000);
+        }
         
-        // Fallback para App Store após delay
-        setTimeout(function() {
-            window.location.href = 'https://apps.apple.com/br/app/turin-app/id6479428113';
-        }, 2000);
+        window.onload = redirect;
     </script>
 </body>
 </html>

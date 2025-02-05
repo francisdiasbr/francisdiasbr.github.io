@@ -1,21 +1,17 @@
 {
-    "applinks": {
-        "apps": [],
-        "details": [
-            {
-                "appID": "9H656NNH93.br.com.roteiroturin.TurinApp",
-                "paths": ["*"],
-                "components": [
-                    {
-                        "/": "/*",
-                        "comment": "Matches any URL"
-                    },
-                    {
-                        "/": "/place/*",
-                        "comment": "Matches any place URL"
-                    }
-                ]
-            }
-        ]
-    }
-} 
+  "applinks": {
+      "apps": [],
+      "details": [
+          {
+              "appID": "9H656NNH93.br.com.roteiroturin.TurinApp",
+              "paths": ["/place/*"],
+              "components": [
+                  {
+                      "/": "/place/*",
+                      "comment": "Matches any place URL"
+                  }
+              ]
+          }
+      ]
+  }
+}

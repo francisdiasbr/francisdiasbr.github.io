@@ -16,12 +16,9 @@
     <script>
         // Tenta abrir o app usando Universal Link
         function openApp() {
-            const currentUrl = window.location.href;
-            
-            // Se estiver na raiz, tenta abrir a home
-            if (window.location.pathname === '/') {
-                window.location.href = 'https://francisdiasbr.github.io';
-            }
+            // Usa a URL completa do site
+            const appUrl = 'https://francisdiasbr.github.io';
+            window.location.href = appUrl;
             
             // Fallback para App Store após delay
             setTimeout(function() {

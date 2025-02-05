@@ -18,12 +18,17 @@
         const pathParts = window.location.pathname.split('/');
         const placeId = pathParts[pathParts.length - 1];
         
-        // Adiciona o ID do place nas meta tags
+        // Constrói a URL completa do Universal Link
+        const baseUrl = 'https://francisdiasbr.github.io';
+        const appUrl = placeId ? `${baseUrl}/place/${placeId}` : baseUrl;
+        
+        // Atualiza a meta tag e redireciona
         const metaUrl = document.querySelector('meta[property="al:ios:url"]');
-        if (metaUrl && placeId) {
-            metaUrl.content = `https://francisdiasbr.github.io/place/${placeId}`;
-            window.location.href = metaUrl.content;
+        if (metaUrl) {
+            metaUrl.content = appUrl;
         }
+        
+        window.location.href = appUrl;
         
         // Fallback para App Store após delay
         setTimeout(function() {
